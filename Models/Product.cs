@@ -23,10 +23,10 @@ namespace net_e_commerce.Models
 
         public string Mint { get; set; }
 
-        public string Desc { get; set; }
+        public string Description { get; set; }
 
-        public int? KategoriId { get; set; }
-        [ForeignKey("KategoriId")]
+        public int? CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
         public ICollection<Photo> Photo { get; set; }
@@ -34,9 +34,9 @@ namespace net_e_commerce.Models
 
     public enum Unit
     {
-        Adet,
+        Piece,
         Kg,
-        Litre,
-        Kasa
+        Lt,
+        Chest
     }
 }
