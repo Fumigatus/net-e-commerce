@@ -22,5 +22,7 @@ namespace net_e_commerce.Data
             : base(options)
         {
         }
+
+        public DbSet<net_e_commerce.Models.Language> Language { get; set; }
     }
 }
