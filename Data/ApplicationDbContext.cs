@@ -17,12 +17,12 @@ namespace net_e_commerce.Data
         public DbSet<OrderDetails> OrderDetails { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<SpecialOffer> SpecialOffers { get; set; }
+        public DbSet<Product> Product { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<net_e_commerce.Models.Language> Language { get; set; }
     }
 }

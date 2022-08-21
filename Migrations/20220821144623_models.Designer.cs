@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using net_e_commerce.Data;
 
-namespace net_e_commerce.Data.Migrations
+namespace net_e_commerce.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220819175919_LanguageModel")]
-    partial class LanguageModel
+    [Migration("20220821144623_models")]
+    partial class models
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -303,21 +303,6 @@ namespace net_e_commerce.Data.Migrations
                     b.ToTable("DiscountProducts");
                 });
 
-            modelBuilder.Entity("net_e_commerce.Models.Language", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("LanguageName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Language");
-                });
-
             modelBuilder.Entity("net_e_commerce.Models.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -432,9 +417,6 @@ namespace net_e_commerce.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Mint")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -444,9 +426,6 @@ namespace net_e_commerce.Data.Migrations
 
                     b.Property<double>("Quantity")
                         .HasColumnType("float");
-
-                    b.Property<int>("Unit")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

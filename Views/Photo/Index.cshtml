@@ -1,19 +1,22 @@
-﻿@model IEnumerable<net_e_commerce.Models.Language>
+﻿@model IEnumerable<net_e_commerce.Models.Photo>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Language</h1>
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create" style="color:blue">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.LanguageName)
+                @Html.DisplayNameFor(model => model.PhotoName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
             </th>
             <th></th>
         </tr>
@@ -22,7 +25,11 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.LanguageName)
+                @Html.DisplayFor(modelItem => item.PhotoName)
+                <img src="@Url.Content(item.PhotoName)" class="d-block w-50" asp-append-version="true"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -220,7 +220,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   height: 100%;
   left: 0;
   opacity: 1;
-  filter: alpha(opacity=100);
+  /*filter: alpha(opacity=100);*/
   position: fixed;
   text-align: center;
   top: 0;

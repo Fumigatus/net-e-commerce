@@ -301,21 +301,6 @@ namespace net_e_commerce.Data.Migrations
                     b.ToTable("DiscountProducts");
                 });
 
-            modelBuilder.Entity("net_e_commerce.Models.Language", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("LanguageName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Language");
-                });
-
             modelBuilder.Entity("net_e_commerce.Models.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -430,9 +415,6 @@ namespace net_e_commerce.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Mint")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -442,9 +424,6 @@ namespace net_e_commerce.Data.Migrations
 
                     b.Property<double>("Quantity")
                         .HasColumnType("float");
-
-                    b.Property<int>("Unit")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
