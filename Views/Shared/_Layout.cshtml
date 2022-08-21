@@ -46,6 +46,7 @@
                 </div>
             </nav>
         </header>*@
+    <!-- Start Top Header Bar -->
     <section class="top-header">
         <div class="container">
             <div class="row">
@@ -58,7 +59,7 @@
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <!-- Site Logo -->
                     <div class="logo text-center">
-                        <a href="index.html">
+                        <a asp-controller="Home" asp-action="Index">
                             <!-- replace logo here -->
                             <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -149,7 +150,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section><!-- End Top Header Bar -->
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -164,7 +166,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @*Essential Scripts
-    =====================================-->*@
+        =====================================-->*@
     <!-- Main jQuery -->
     <script src="~/plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.1 -->
