@@ -1,11 +1,20 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - net_e_commerce</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Aviato | E-commerce template</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="author" content="Themefisher">
+    <meta name="generator" content="Themefisher Constra HTML Template v1.0">
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.png" />
 
@@ -22,6 +31,7 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="~/css/style.css">
+
 </head>
 <body>
     <!-- Start Top Header Bar -->
@@ -102,6 +112,7 @@
                                 </ul>
                             </div>
 
+                            <partial name="_LoginPartial" />
                         </li><!-- / Cart -->
                         <!-- Search -->
                         <li class="dropdown search dropdown-slide">
@@ -272,12 +283,10 @@
             </div><!-- / .container -->
         </nav>
     </section>
-    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
-    <footer class="footer section text-center">
+    <footer class="footer text-center" >
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
