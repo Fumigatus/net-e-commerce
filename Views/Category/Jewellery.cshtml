@@ -1,34 +1,37 @@
 ﻿@model IEnumerable<net_e_commerce.Models.Product>
 }
 <h1>Clothes</h1>
-@foreach (var item in Model)
-{
-    @if (item.CategoryId == 2)
-    {
-        <section class="products section bg-gray">
-            <div class="container">
-                <div class="row">
-                    <div class="title text-center">
-                        <h2>Jewellery</h2>
-                    </div>
-                </div>
-                <div class="row">
+<section class="products section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="title text-center">
+                <h2>Jewellery</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                @if (item.CategoryId == 2)
+                {
                     <div class="col-md-4">
                         <div class="product-item">
                             <div class="product-thumb">
-                                <span class="bage">Sale</span>
+                                @if (item.Quantity == 0)
+                                {
+                                    <span class="bage">Sold</span>
+                                }
                                 <img class="img-responsive" src="@Url.Content(item.Photo)" alt="product-img" />
                                 <div class="preview-meta">
                                 </div>
                             </div>
                             <div class="product-content">
                                 <h4><a href="product-single.html">@Url.Content(item.Name)</a></h4>
-                                <p class="price">@Url.Content(item.Price.ToString())</p>
+                                <p class="price">$@Url.Content(item.Price.ToString())</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-    }
-}
+                }
+            }
+        </div>
+    </div>
+</section>
