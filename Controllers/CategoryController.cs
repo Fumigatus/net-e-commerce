@@ -145,6 +145,24 @@ namespace net_e_commerce.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Clothes()
+        {
+            var db = _context.Product;
+            return View(db.ToList());
+        }
+
+        public IActionResult Jewellery()
+        {
+            var db = _context.Product;
+            return View(db.ToList());
+        }
+
+        public IActionResult Smart()
+        {
+            var db = _context.Product;
+            return View(db.ToList());
+        }
+
         private bool CategoryExists(int id)
         {
             return _context.Categories.Any(e => e.Id == id);
