@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +15,11 @@ namespace net_e_commerce.Controllers
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostingEnviroment;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController(ApplicationDbContext context, IWebHostEnvironment hostingEnviroment)
         {
+            _hostingEnviroment = hostingEnviroment;
             _context = context;
         }
 
@@ -57,10 +61,20 @@ namespace net_e_commerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Quantity,Description,CategoryId")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,Quantity,Description,CategoryId,Photo")] Product product)
         {
             if (ModelState.IsValid)
             {
+                string webRootPath = _hostingEnviroment.WebRootPath;
+                var files = HttpContext.Request.Form.Files;
+                string fileName = Guid.NewGuid().ToString();
+                var uploads = Path.Combine(webRootPath, @"images/product");
+                var extension = Path.GetExtension(files[0].FileName);//yüklenen resim dosyasının uzantısı
+                using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                {
+                    files[0].CopyTo(fileStream);
+                }
+                product.Photo = @"/images/product" + "/" + fileName + extension;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -91,7 +105,7 @@ namespace net_e_commerce.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Quantity,Description,CategoryId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Quantity,Description,CategoryId,Photo")] Product product)
         {
             if (id != product.Id)
             {

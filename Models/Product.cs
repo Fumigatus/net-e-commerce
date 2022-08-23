@@ -21,6 +21,6 @@ namespace net_e_commerce.Models
         public int? CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
-        public ICollection<Photo> Photo { get; set; }
+        public string Photo { get; set; }
     }
 }
