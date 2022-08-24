@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<net_e_commerce.Models.Product>
-}
-<h1>Clothes</h1>
 <section class="products section bg-gray">
     <div class="container">
         <div class="row">
@@ -18,7 +16,11 @@
                             <div class="product-thumb">
                                 @if (item.Quantity == 0)
                                 {
-                                    <span class="bage">Sold</span>
+                                    <span class="bage">Sold Out</span>
+                                }
+                                else if (item.Quantity < 10)
+                                {
+                                    <span class="bage">Last @Url.Content(item.Quantity.ToString()) product</span>
                                 }
                                 <img class="img-responsive" src="@Url.Content(item.Photo)" alt="product-img" />
                                 <div class="preview-meta">

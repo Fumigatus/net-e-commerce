@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-4">
-                            <partial name="_LoginPartial" />
+                    <partial name="_LoginPartial" />
                     <!-- Cart -->
                     <ul class="top-menu text-right list-inline">
                         <li class="dropdown cart-nav dropdown-slide">
@@ -109,7 +109,8 @@
                                     <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
                                 </li>
                             </ul>
-                        </li>--><!-- / Search -->
+                        </li>-->
+                        <!-- / Search -->
                         <!-- Languages -->
                         <li class="commonSelect">
                             <select class="form-control">
@@ -152,26 +153,14 @@
                         <li class="dropdown dropdown-slide">
                             <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                role="button" aria-haspopup="true" aria-expanded="false">
-                                Shop <span class="tf-ion-ios-arrow-down"></span>
+                                Categories <span class="tf-ion-ios-arrow-down"></span>
                             </a>
-                            <div class="dropdown-menu">
-                                <div class="row">
+                            <ul class="dropdown-menu">
+                                <li><a asp-controller="Category" Asp-action="Clothes">Clothes</a></li>
+                                <li><a asp-controller="Category" Asp-action="Jewellery">Jewellery</a></li>
+                                <li><a asp-controller="Category" Asp-action="Smart">Accessory</a></li>
 
-
-
-                                    <!-- Layout -->
-                                    <div class="col-lg-6 col-md-6 mb-sm-3">
-                                        <ul>
-                                            <li class="dropdown-header">Layout</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="product-single.html">Product Details</a></li>
-                                            <li><a href="shop-sidebar.html">Shop With Sidebar</a></li>
-
-                                        </ul>
-                                    </div>
-
-                                </div><!-- / .row -->
-                            </div><!-- / .dropdown-menu -->
+                            </ul>
                         </li><!-- / Elements -->
                         <!-- Pages -->
                         <li class="dropdown dropdown-slide">
@@ -181,7 +170,6 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a asp-controller="Category" asp-action="Index">Category</a></li>
-                                <li><a asp-controller="Photo" asp-action="Index">Photo</a></li>
                                 <li><a asp-controller="Product" asp-action="Index">Product</a></li>
 
                             </ul>

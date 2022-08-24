@@ -30,6 +30,18 @@ namespace net_e_commerce.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> SingleProduct()
+        {
+            var applicationDbContext = _context.Product.Include(p => p.Category);
+            return View(await applicationDbContext.ToListAsync());
+        }
+        
+        public async Task<IActionResult> AllProducts()
+        {
+            var applicationDbContext = _context.Product.Include(p => p.Category);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
         // GET: Product/Details/5
         public async Task<IActionResult> Details(int? id)
         {
